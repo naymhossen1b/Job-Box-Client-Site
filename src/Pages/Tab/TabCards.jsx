@@ -1,35 +1,19 @@
 /* eslint-disable react/prop-types */
 
-import { Link } from "react-router-dom";
-import { Tab, TabPanel, Tabs } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
+const TabCards = ({ jobs }) => {
 
-const TabCards = ({jobs, tab}) => {
+  const { job_title, deadline, price, short_description } = jobs || {};
 
-    const { _id, category} = tab || {}
-
-    const {job_title} = jobs || {}
-
-    return (
-        <div>
-            
-            <div className="mt-8">
-          <Tabs>
-          <Link to={`/tabs/${_id}`}>
-          <div className="border font-bold">
-              <Tab>{category}</Tab>
-            </div>
-          </Link>
-
-    {/* all jobs data */}
-
-            <TabPanel>
-              <h2>Any content 2</h2>
-            </TabPanel>
-          </Tabs>
-        </div>
-        </div>
-    );
+  return (
+    <div>
+      <div className="p-4 border">
+        <h1 className="text-2xl font-bold">{job_title}</h1>
+        <p>{short_description}</p>
+        <p>{deadline}</p>
+        <p>${price}/Year</p>
+      </div>
+    </div>
+  );
 };
 
 export default TabCards;

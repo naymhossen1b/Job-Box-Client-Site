@@ -8,7 +8,6 @@ import MyPostedJobs from "../Pages/PostedJobs/MyPostedJobs";
 import MyBids from "../Pages/MyBids/MyBids";
 import BidRequests from "../Pages/BidRequests/BidRequests";
 import Error from "../Shared/Error";
-import Category from "../Pages/Tab/Category";
 
 const router = createBrowserRouter([
     {
@@ -36,11 +35,6 @@ const router = createBrowserRouter([
             path: '/bidRequests',
             element: <BidRequests />
         },
-        {
-            path: '/tabs/:category',
-            element: <Category />,
-            loader: ({params}) => fetch(`http://localhost:5000/api/v1/tabs/${params.category}`)
-        }
       ]
     },
     {
