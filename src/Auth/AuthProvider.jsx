@@ -2,6 +2,7 @@
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "./firebase.config";
+import axios from "axios";
 
 
 export const AuthContext = createContext(null);
@@ -36,8 +37,34 @@ const AuthProvider = ({children}) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+
+            const userEmail = currentUser?.email;
+            const loggedUser = { email: userEmail };
+
             setUser(currentUser);
+            console.log("currentUser", currentUser);
             setLoading(false);
+
+            ////////////// JWT Function 
+            if (currentUser) {
+                axios
+                  .post("http://localhost:5000/jwt", loggedUser, { withCredentials: true })
+                  .then((res) => {
+                    console.log("Get Tokens", res.data);
+                  })
+                  .catch((error) => {
+                    console.error("Error getting tokens:", error);
+                  });
+              } else {
+                axios
+                  .post("http://localhost:5000/logout", loggedUser, { withCredentials: true })
+                  .then((res) => {
+                    console.log("Get Log Out", res.data);
+                  })
+                  .catch((error) => {
+                    console.error("Error logging out:", error);
+                  });
+              }
         });
         return () => {
             unsubscribe();

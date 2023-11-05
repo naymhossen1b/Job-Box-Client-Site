@@ -1,11 +1,94 @@
 [
   {
+    "job_title": "Frontend Developer",
+    "deadline": "2023-12-15",
+    "short_description": "Seeking a skilled frontend developer to work on creating responsive user interfaces.",
+    "minimum_price": 800,
+    "maximum_price": 1000,
     "category": "Developer"
   },
   {
-    "category": "Marketing"
+    "job_title": "Backend Developer",
+    "deadline": "2023-12-20",
+    "short_description": "Join our team as a backend developer to work on scalable and efficient server-side logic.",
+    "minimum_price": 100,
+    "maximum_price": 2000,
+    "category": "Developer"
   },
   {
-    "category": "Design"
+    "job_title": "Full Stack Developer",
+    "deadline": "2024-01-10",
+    "short_description": "Looking for a full stack developer experienced in both frontend and backend technologies.",
+    "minimum_price": 200,
+    "maximum_price": 3000,
+    "category": "Developer"
+  },
+  {
+    "job_title": "UI/UX Designer",
+    "deadline": "2023-11-30",
+    "short_description": "Hiring a UI/UX designer to create intuitive and visually appealing interfaces.",
+    "minimum_price": 200,
+    "maximum_price": 500,
+    "category": "Developer"
+  },
+  {
+    "job_title": "Digital Marketing Manager",
+    "deadline": "2023-11-10",
+    "minimum_price": 40,
+    "maximum_price": 500,
+    "category": "Marketing",
+    "short_description": "Manage all aspects of a company's digital marketing strategy, including SEO, SEM, social media, and email marketing."
+  },
+  {
+    "job_title": "Content Marketing Specialist",
+    "deadline": "2023-11-15",
+    "minimum_price": 800,
+    "maximum_price": 1000,
+    "category": "Marketing",
+    "short_description": "Create and distribute high-quality content that attracts and engages potential customers."
+  },
+  {
+    "job_title": "Social Media Marketing Specialist",
+    "deadline": "2023-11-20",
+    "minimum_price": 400,
+    "maximum_price": 900,
+    "category": "Marketing",
+    "short_description": "Develop and execute social media marketing campaigns to promote a company's brand and products or services."
+  },
+  {
+    "job_title": "Search Engine Optimization (SEO) Specialist",
+    "deadline": "2023-11-25",
+    "minimum_price": 30,
+    "maximum_price": 800,
+    "category": "Marketing",
+    "short_description": "Optimize a company's website and content for search engines to improve its visibility and organic traffic."
+  },
+  {
+    "job_title": "Logo Design",
+    "deadline": "2023-11-10",
+    "minimum_price": 800,
+    "maximum_price": 1000,"category": "Design",
+    "short_description": "Design a new logo for my company."
+  },
+  {
+    "job_title": "Social Media Graphics",
+    "deadline": "2023-11-15",
+    "minimum_price": 50,
+    "maximum_price": 300,"category": "Design",
+    "short_description": "Create a set of social media graphics for my business."
+  },
+  {
+    "job_title": "Website Design",
+    "deadline": "2023-11-20",
+    "minimum_price": 80,
+    "maximum_price": 100,"category": "Design",
+    "short_description": "Design a new website for my company."
+  },
+  {
+    "job_title": "Product Packaging Design",
+    "deadline": "2023-11-25",
+    "minimum_price": 400,
+    "maximum_price": 5000,"category": "Design",
+    "short_description": "Design a new product packaging for my product."
   }
 ]
