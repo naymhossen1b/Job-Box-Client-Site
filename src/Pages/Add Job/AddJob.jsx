@@ -1,25 +1,42 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 const AddJob = () => {
 
     const { user } = useContext(AuthContext);
 
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = user.email;
-        const jobTitle = form.jobTitle.value;
-        const jobDeadline = form.jobDeadline.value;
+        const job_title = form.job_title.value;
+        const deadline = form.deadline.value;
         const jobCategory = form.jobCategory.value;
         const minimum_price = form.minimum_price.value;
         const maximum_price = form.maximum_price.value;
-        const description = form.description.value;
-        const data = {email, jobTitle, jobDeadline, jobCategory, minimum_price, maximum_price, description};
-        console.log(data);
-    }
+        const short_description = form.short_description.value;
+        const data = {email, job_title, deadline, jobCategory, minimum_price, maximum_price, short_description};
 
+        
+        fetch('http://localhost:5000/api/v1/userPostJobs', {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            toast.success('You Successfully Post our Job')
+            navigate('/myPostedJobs')
+        })
+    };
 
     return (
         <div className=" mt-10">
@@ -34,7 +51,6 @@ const AddJob = () => {
                 type="email"
                 placeholder={ user ? user.email : 'example.gmail.com'}
                 className="input input-bordered"
-                required
                 name="email"
               />
             </div>
@@ -47,7 +63,7 @@ const AddJob = () => {
                 placeholder="job title "
                 className="input input-bordered"
                 required
-                name="jobTitle"
+                name="job_title"
               />
             </div>
             <div className="form-control">
@@ -58,7 +74,7 @@ const AddJob = () => {
                 type="date"
                 className="input input-bordered"
                 required
-                name="jobDeadline"
+                name="deadline"
               />
             </div>
             <div className="form-control">
@@ -104,7 +120,7 @@ const AddJob = () => {
               <textarea
                 rows={5}
                 className="border p-2 rounded-md"
-                name="description"
+                name="short_description"
                 required
               ></textarea>
             </div>
