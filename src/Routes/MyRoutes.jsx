@@ -9,6 +9,7 @@ import MyBids from "../Pages/MyBids/MyBids";
 import BidRequests from "../Pages/BidRequests/BidRequests";
 import Error from "../Shared/Error";
 import JobDetails from "../Pages/Details/JobDetails";
+import UpdatePost from "../Pages/PostedJobs/UpdatePost";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
             element: <JobDetails />,
             loader: ({params}) => fetch(`http://localhost:5000/api/v1/tabs/${params.id}`)
         },
+        {
+            path: '/updateJobs/:id',
+            element: <UpdatePost />,
+            loader: ({params}) => fetch(`http://localhost:5000/api/v1/userPostJobs/${params.id}`)
+        }
       ]
     },
     {

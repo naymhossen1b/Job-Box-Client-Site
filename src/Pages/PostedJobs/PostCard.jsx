@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 
 const PostCard = ({ post, jobs, setJobs }) => {
@@ -43,7 +44,9 @@ const PostCard = ({ post, jobs, setJobs }) => {
             </p>
           </div>
           <div className="grid gap-3">
+            <Link to={`/updateJobs/${_id}`}>
             <button className="btn bg-sky-500 text-white">Update</button>
+            </Link>
             <button onClick={() => handleDelete(_id)} className="btn bg-red-500 text-white">Delete</button>
           </div>
         </div>
