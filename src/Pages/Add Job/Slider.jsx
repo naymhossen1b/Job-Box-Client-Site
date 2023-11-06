@@ -18,7 +18,7 @@ const Slider = ({items}) => {
       <div className="flex" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
         {items.map((item, index) => (
           <div key={index} className="w-full flex-shrink-0">
-            <div className=" p-4 m-2 rounded-md">{item}</div>
+            <div className="rounded-md">{item}</div>
           </div>
         ))}
       </div>
