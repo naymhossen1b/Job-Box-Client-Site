@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Banner from "./Banner";
 
 
 const AddJob = () => {
@@ -39,8 +40,10 @@ const AddJob = () => {
     };
 
     return (
-        <div className=" mt-10">
-        <div className="card w-full max-w-lg shadow-2xl bg-sky-200">
+        <div>
+          <Banner />
+          <div className=" mt-10 grid grid-cols-1 md:grid-cols-5 gap-5">
+        <div className="card w-full col-span-3 shadow-2xl bg-sky-200">
           <form className="card-body" onSubmit={handleSubmit}>
 
           <div className="form-control">
@@ -130,7 +133,12 @@ const AddJob = () => {
             </div>
           </form>
         </div>
+         
+        <div className="p-20 col-span-2 bg-blue-300">
+          
+        </div>
       </div>
+        </div>
     );
 };
 
