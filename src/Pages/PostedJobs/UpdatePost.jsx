@@ -1,17 +1,17 @@
 import { useContext } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider";
+import toast from "react-hot-toast";
 
 const UpdatePost = () => {
   const { user } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const jobPost = useLoaderData();
   console.log(jobPost);
-  const { job_title, deadline, minimum_price, maximum_price, short_description, jobCategory } =
+  const { job_title, deadline, minimum_price, _id, maximum_price, short_description, jobCategory } =
     jobPost;
-
-  const { id } = useParams();
-  console.log("postUp id:", id);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ const UpdatePost = () => {
     const email = user.email;
     const job_title = form.job_title.value;
     const deadline = form.deadline.value;
-    const jobCategory = form.jobCategory.value;
+    const jobCategory = form.jobCategory;
     const minimum_price = form.minimum_price.value;
     const maximum_price = form.maximum_price.value;
     const short_description = form.short_description.value;
@@ -33,6 +33,21 @@ const UpdatePost = () => {
       short_description,
     };
     console.log(data);
+
+    fetch(`http://localhost:5000/api/v1/userPostJobs/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Great Work Your Job Successfully Updated");
+          navigate("/myPostedJobs");
+        }
+      });
   };
 
   return (
@@ -115,8 +130,10 @@ const UpdatePost = () => {
           ></textarea>
         </div>
         <div className="form-control mt-2">
-              <button className="btn bg-sky-600 text-white hover:bg-blue-800">Update Job</button>
-            </div>
+          <button type="submit" className="btn bg-sky-600 text-white hover:bg-blue-800">
+            Update Job
+          </button>
+        </div>
       </form>
     </div>
   );
