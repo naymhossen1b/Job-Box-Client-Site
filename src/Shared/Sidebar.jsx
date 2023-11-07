@@ -14,6 +14,7 @@ const Sidebar = () => {
 
     return (
         <div>
+            <h1 className="text-xl font-bold mb-5 text-center">🔥Today Most Popular Jobs🔥</h1>
             <div className="grid grid-cols- md:grid-cols-1 gap-6">
                 {
                     cards.map( card => <Sitecard key={card._id} card={card} /> )
