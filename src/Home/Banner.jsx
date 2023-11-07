@@ -4,7 +4,7 @@ import { SiCodingninjas, SiTaichigraphics } from "react-icons/si";
 
 const Banner = () => {
   return (
-    <div className="h-[75vh] bg-sky-800 text-white text-center rounded-md">
+    <div className="h-fu bg-sky-800 text-white text-center rounded-md">
       <div className="p-20">
         <h1 className="text-3xl font-bold">
           The #1 <span className="text-green-400">Job Board for</span>

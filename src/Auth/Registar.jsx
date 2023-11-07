@@ -5,28 +5,30 @@ import toast, { Toaster } from "react-hot-toast";
 import SocialLogin from "../Hooks/SocialLogin";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateOnProfile } = useContext(AuthContext);
 
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
-
 
   const navigate = useNavigate();
 
   const handelRegister = async (e) => {
     e.preventDefault();
 
-    const tostId = toast.loading('Creating user...')
+    const tostId = toast.loading("Creating user...");
 
     try {
-      await createUser(email, password)
-      toast.success('Account Created Success', {id: tostId});
-      navigate('/');
-    }
-    catch (error) {
-      toast.error(error.message, {id: tostId})
+      await createUser(email, password).then((res) => {
+        console.log(res);
+        updateOnProfile(name, photoUrl).then(() => {
+          toast.success("Account Created Success", { id: tostId });
+          navigate("/");
+        });
+      });
+    } catch (error) {
+      toast.error(error.message, { id: tostId });
     }
   };
 
@@ -48,13 +50,13 @@ const Register = () => {
               <p className="text-gray-400">Access to all features. No credit card required.</p>
             </div>
             <div className="w-11/12 mx-auto">
-                <SocialLogin />
+              <SocialLogin />
 
-            <div className="flex items-center text-white mt-5 font-bold">
-              <div className="border border-yellow-400 w-full"></div>
-              <p className="ml-4 mr-5">Or</p>
-              <div className="border border-yellow-400 w-full"></div>
-            </div>
+              <div className="flex items-center text-white mt-5 font-bold">
+                <div className="border border-yellow-400 w-full"></div>
+                <p className="ml-4 mr-5">Or</p>
+                <div className="border border-yellow-400 w-full"></div>
+              </div>
             </div>
             <div>
               <label className="label mt-8">
