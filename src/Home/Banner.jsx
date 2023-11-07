@@ -14,7 +14,7 @@ const Banner = () => {
           Each month, more than 3 million job seekers turn to website in their search for work,
           making over 140,000 applications every single day
         </p>
-        <div className="md:flex grid grid-cols-1  items-center justify-between mt-10 gap-3 md:p-4 md:bg-white text-black rounded-md w-8/12 mx-auto">
+        <div className="md:flex grid grid-cols-1 md:w-full  items-center justify-between mt-10 gap-3 md:p-4 md:bg-white text-black rounded-md w-8/12 mx-auto">
           <div>
             <select className="input ">
               <option>Industry</option>
@@ -48,7 +48,7 @@ const Banner = () => {
           <span>PHP</span> <span>Senior</span> <span>Engineer</span>
         </p>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
-          <div className="md:flex items-center gap-3 p-2 rounded-md bg-white text-black">
+          <div className="lg:flex md:grid items-center text-center gap-3 p-2  rounded-md bg-white text-black">
             <div>
               <AiOutlineFileSearch className="font-bold w-11/12 mx-auto text-5xl text-blue-400" />
             </div>
@@ -57,7 +57,7 @@ const Banner = () => {
               <p className="text-sm text-gray-500">1200 Jobs Available</p>
             </div>
           </div>
-          <div className="md:flex text-center items-center gap-3 p-2 rounded-md bg-white text-black">
+          <div className="lg:flex md:grid text-center items-center gap-3 p-2 md:p-0 lg:p-2 rounded-md bg-white text-black">
             <div>
               <FcComboChart className="font-bold w-11/12 mx-auto  text-5xl" />
             </div>
@@ -66,7 +66,7 @@ const Banner = () => {
               <p className="text-sm text-gray-500">1500 Jobs Available</p>
             </div>
           </div>
-          <div className="md:flex items-center gap-3 p-2 rounded-md bg-white text-black">
+          <div className="lg:flex md:grid text-center items-center gap-3 p-2 md:p-0 lg:p-2 rounded-md bg-white text-black">
             <div>
               <SiCodingninjas className="font-bold w-11/12 mx-auto text-4xl" />
             </div>
@@ -75,7 +75,7 @@ const Banner = () => {
               <p className="text-sm text-gray-500">2000 Jobs Available</p>
             </div>
           </div>
-          <div className="md:flex items-center gap-3 p-2 rounded-md bg-white text-black">
+          <div className="lg:flex md:grid items-center gap-3 p-2 rounded-md bg-white text-black">
             <div>
               <SiTaichigraphics className="font-bold w-11/12 mx-auto text-blue-500 text-5xl" />
             </div>
