@@ -33,17 +33,19 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-[url('https://i.ibb.co/s1Hhj8Z/top-view-delicious-food-with-copy-space.jpg')]">
+    <div className="min-h-screen bg-cover bg-[url('https://i.ibb.co/9rXs0m0/Black-background-wallpaper-by-Ma-DBut4er-Download-on-ZEDGE-ee4e.jpg')]">
       <section className="grid grid-cols-1 md:grid-cols-2">
-        <div></div>
+        <div>
+          <img className="mt-20" src="https://i.ibb.co/wBZSg3b/vecteezy-fills-in-the-profile-data-form-businessman-fills-in-the-21179570-490.png" alt="" />
+        </div>
         {/* Form section */}
-        <div className=" p-20">
+        <div className="p-2 md:p-20">
           <form
             onSubmit={handelRegister}
             className="space-y-3 shadow-md shadow-yellow-400 rounded-md border p-10"
           >
             <div className="text-center text-white">
-              <h1 className="text-2xl font-bold text-yellow-800">
+              <h1 className="text-4xl font-bold text-yellow-800">
                 Job<span className="text-purple-950">Box</span>
               </h1>
               <h1 className="text-xl font-bold mt-5 mb-2">Start for free Today</h1>
