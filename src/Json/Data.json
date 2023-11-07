@@ -2,7 +2,7 @@
     {
       "job_name": "Software Engineer",
       "category": "Tech",
-      "image": "https://example.com/images/software_engineer.jpg",
+      "image": "https://imagizer.imageshack.com/img923/2742/YZCWUA.jpg",
       "description": "We are seeking a skilled software engineer to develop high-quality software solutions.",
       "salary": "$80,000 - $120,000 per year",
       "working_time": "Full-time",
@@ -13,7 +13,7 @@
     {
       "job_name": "Data Scientist",
       "category": "Tech",
-      "image": "https://example.com/images/data_scientist.jpg",
+      "image": "https://imagizer.imageshack.com/img923/5263/gtPTRM.jpg",
       "description": "Join our team to analyze complex data and contribute to important business decisions.",
       "salary": "$90,000 - $130,000 per year",
       "working_time": "Full-time",
@@ -24,7 +24,7 @@
     {
       "job_name": "Cybersecurity Analyst",
       "category": "Tech",
-      "image": "https://example.com/images/cybersecurity_analyst.jpg",
+      "image": "https://imagizer.imageshack.com/img923/4281/J3WDLD.jpg",
       "description": "Looking for a cybersecurity analyst to ensure the security of our systems and data.",
       "salary": "$75,000 - $110,000 per year",
       "working_time": "Full-time",
@@ -35,7 +35,7 @@
     {
       "job_name": "UX/UI Designer",
       "category": "Tech",
-      "image": "https://example.com/images/ux_ui_designer.jpg",
+      "image": "https://imagizer.imageshack.com/img924/1082/9tnrlA.jpg",
       "description": "Seeking a creative designer to craft amazing user experiences.",
       "salary": "$70,000 - $100,000 per year",
       "working_time": "Full-time",
@@ -46,7 +46,7 @@
     {
       "job_name": "Machine Learning Engineer",
       "category": "Tech",
-      "image": "https://example.com/images/machine_learning_engineer.jpg",
+      "image": "https://imagizer.imageshack.com/img923/8467/FJxiy1.jpg",
       "description": "Join our team to develop and deploy machine learning models for innovative projects.",
       "salary": "$95,000 - $140,000 per year",
       "working_time": "Full-time",
@@ -57,7 +57,7 @@
     {
       "job_name": "Network Engineer",
       "category": "Tech",
-      "image": "https://example.com/images/network_engineer.jpg",
+      "image": "https://imagizer.imageshack.com/img924/1401/KHVs3B.jpg",
       "description": "Looking for a network engineer to design, implement, and support network infrastructure.",
       "salary": "$85,000 - $120,000 per year",
       "working_time": "Full-time",

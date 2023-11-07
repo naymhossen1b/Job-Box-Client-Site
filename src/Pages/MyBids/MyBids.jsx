@@ -1,9 +1,18 @@
+import { useLoaderData } from "react-router-dom";
+import BidsCard from "./BidsCard";
 
 
 const MyBids = () => {
+
+    const myBids = useLoaderData();
+
     return (
         <div>
-            <h1>My Bids page</h1>
+            <div>
+                {
+                    myBids?.map( (bids) => <BidsCard key={bids._id} bids={bids} /> )
+                }
+            </div>
         </div>
     );
 };

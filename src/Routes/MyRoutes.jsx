@@ -32,11 +32,13 @@ const router = createBrowserRouter([
         },
         {
             path: '/myBids',
-            element: <MyBids />
+            element: <MyBids />,
+            loader: () => fetch('http://localhost:5000/api/v1/userBids')
         },
         {
             path: '/bidRequests',
-            element: <BidRequests />
+            element: <BidRequests />,
+            loader: () => fetch('http://localhost:5000/api/v1/userBids')
         },
         {
             path: '/jobDetails/:id',

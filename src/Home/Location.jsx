@@ -1,7 +1,7 @@
 
 const Location = () => {
     return (
-        <div className="mt-32">
+        <div className="mt-32 hover:cursor-pointer">
             <div className="text-center space-y-2 font-bold">
                 <h1 className="text-5xl text-gray-700">Jobs by Location</h1>
                 <p>Find your favourite jobs and get the benefits of yourself</p>

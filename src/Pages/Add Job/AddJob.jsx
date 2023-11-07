@@ -3,56 +3,64 @@ import { AuthContext } from "../../Auth/AuthProvider";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Banner from "./Banner";
-
+import Sidebar from "../../Shared/Sidebar";
 
 const AddJob = () => {
+  const { user } = useContext(AuthContext);
 
-    const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const email = user.email;
-        const job_title = form.job_title.value;
-        const deadline = form.deadline.value;
-        const jobCategory = form.jobCategory.value;
-        const minimum_price = form.minimum_price.value;
-        const maximum_price = form.maximum_price.value;
-        const short_description = form.short_description.value;
-        const data = {email, job_title, deadline, jobCategory, minimum_price, maximum_price, short_description};
-
-        
-        fetch('http://localhost:5000/api/v1/userPostJobs', {
-            method: 'POST',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            toast.success('You Successfully Post our Job')
-            navigate('/myPostedJobs')
-        })
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = user.email;
+    const job_title = form.job_title.value;
+    const deadline = form.deadline.value;
+    const jobCategory = form.jobCategory.value;
+    const minimum_price = form.minimum_price.value;
+    const maximum_price = form.maximum_price.value;
+    const short_description = form.short_description.value;
+    const data = {
+      email,
+      job_title,
+      deadline,
+      jobCategory,
+      minimum_price,
+      maximum_price,
+      short_description,
     };
 
-    return (
-        <div>
-          <Banner />
-          <div className=" mt-10 grid grid-cols-1 md:grid-cols-5 gap-5">
-        <div className="card w-full col-span-3 shadow-2xl bg-sky-200">
-          <form className="card-body" onSubmit={handleSubmit}>
+    fetch("http://localhost:5000/api/v1/userPostJobs", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("You Successfully Post our Job");
+        navigate("/myPostedJobs");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
-          <div className="form-control">
+  return (
+    <div className="bg-sky-200 rounded-md">
+      <Banner />
+      <div className=" mt-10 grid grid-cols-1 md:grid-cols-5 gap-5">
+        <div className="card w-full col-span-3">
+          <form className="card-body" onSubmit={handleSubmit}>
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
-                placeholder={ user ? user.email : 'example.gmail.com'}
+                placeholder={user ? user.email : "example.gmail.com"}
                 className="input input-bordered"
                 name="email"
               />
@@ -73,22 +81,13 @@ const AddJob = () => {
               <label className="label">
                 <span className="label-text">Deadline</span>
               </label>
-              <input
-                type="date"
-                className="input input-bordered"
-                required
-                name="deadline"
-              />
+              <input type="date" className="input input-bordered" required name="deadline" />
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Job Category</span>
               </label>
-              <select
-                className="input input-bordered"
-                name="jobCategory"
-                required
-              >
+              <select className="input input-bordered" name="jobCategory" required>
                 <option>Chose Your Job Type</option>
                 <option>Developer</option>
                 <option>Marketing</option>
@@ -127,19 +126,19 @@ const AddJob = () => {
                 required
               ></textarea>
             </div>
-  
+
             <div className="form-control mt-2">
               <button className="btn bg-sky-600 text-white hover:bg-blue-800">Add Job</button>
             </div>
           </form>
         </div>
-         
-        <div className="p-20 col-span-2 bg-blue-300">
-          
+
+        <div className="p-20 col-span-2">
+          <Sidebar />
         </div>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default AddJob;
