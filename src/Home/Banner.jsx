@@ -12,9 +12,9 @@ const Banner = () => {
         <p className="text-3xl font-bold">Hiring or Find Your Next Tob</p>
         <p className="w-4/6 mx-auto mt-3">
           Each month, more than 3 million job seekers turn to website in their search for work,
-          making over 140,000 applications every single day
+          making over 140,000 applications every single day.
         </p>
-        <div className="md:flex grid grid-cols-1 md:w-full  items-center justify-between mt-10 gap-3 md:p-4 md:bg-white text-black rounded-md w-8/12 mx-auto">
+        <div className="md:flex grid grid-cols-1 md:w-full  items-center justify-between mt-10 gap-3 md:p-4 md:bg-white text-black rounded-md lg:w-8/12 mx-auto">
           <div>
             <select className="input ">
               <option>Industry</option>
@@ -35,8 +35,8 @@ const Banner = () => {
             </select>
           </div>
           <div className="flex justify-center gap-2 items-center">
-            <input className="md:w-full w-9/12 rounded-md p-2 " type="search" placeholder="Your keyword.." />
-            <button className="border p-2 rounded-md gap-2 md:mt-2 flex items-center text-white text-sm bg-sky-800">
+            <input className="md:w-full w-4/12 rounded-md p-2 " type="search" placeholder="Your keyword.." />
+            <button className="border p-2 rounded-md gap-2 flex items-center text-white text-sm bg-sky-800">
               <AiOutlineSearch />
               Search
             </button>
