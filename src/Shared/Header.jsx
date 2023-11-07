@@ -137,12 +137,12 @@ const Header = () => {
           </ul>
         </div>
         <div className="md:mr-10 lg:order-first">
-          <RealTime />
           <Link to="/">
             <h1 className="text-4xl shadow-sm p-2 rounded-md shadow-white font-bold lg:ml-5">
               Job<span className="text-red-500">Box</span>
             </h1>
           </Link>
+          <RealTime />
         </div>
       </nav>
     </div>

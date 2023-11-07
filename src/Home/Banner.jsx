@@ -4,7 +4,7 @@ import { SiCodingninjas, SiTaichigraphics } from "react-icons/si";
 
 const Banner = () => {
   return (
-    <div className="h-fu bg-sky-800 text-white text-center rounded-md">
+    <div className=" bg-sky-800 text-white text-center rounded-md">
       <div className="md:p-20 p-1">
         <h1 className="text-3xl font-bold">
           The #1 <span className="text-green-400">Job Board for</span>
@@ -14,7 +14,7 @@ const Banner = () => {
           Each month, more than 3 million job seekers turn to website in their search for work,
           making over 140,000 applications every single day
         </p>
-        <div className="flex flex-wrap items-center justify-between mt-10 gap-3 md:p-4 md:bg-white text-black rounded-md w-8/12 mx-auto">
+        <div className="md:flex grid grid-cols-1  items-center justify-between mt-10 gap-3 md:p-4 md:bg-white text-black rounded-md w-8/12 mx-auto">
           <div>
             <select className="input ">
               <option>Industry</option>
@@ -34,9 +34,9 @@ const Banner = () => {
               <option>Bangladesh</option>
             </select>
           </div>
-          <div className="md:flex items-center">
-            <input className="md:w-full rounded-md p-2 " type="search" placeholder="Your keyword.." />
-            <button className="border p-2 rounded-md gap-2 mt-2 flex items-center text-white text-sm bg-sky-800">
+          <div className="flex justify-center gap-2 items-center">
+            <input className="md:w-full w-9/12 rounded-md p-2 " type="search" placeholder="Your keyword.." />
+            <button className="border p-2 rounded-md gap-2 md:mt-2 flex items-center text-white text-sm bg-sky-800">
               <AiOutlineSearch />
               Search
             </button>
