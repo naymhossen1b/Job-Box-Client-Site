@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <div className="bg-gradient-to-r shadow-md  p-1  text-xl">
-      <nav className=" py-5 flex items-center lg:justify-between">
+      <nav className=" py-5 flex items-center justify-between">
         <div>
           <div className="lg:hidden text-4xl" onClick={() => setOpen(!open)}>
             {open == true ? <RxCross2 /> : <HiMenuAlt2 />}
