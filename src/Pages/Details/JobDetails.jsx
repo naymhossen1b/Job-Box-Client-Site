@@ -18,7 +18,7 @@ const JobDetails = () => {
     const maximum_price = form.maximum_price.value;
     const bidData = { email, deadline, maximum_price, minimum_price, job_title, category };
 
-    fetch("https://job-box-server-nu.vercel.app/api/v1/userBids", {
+    fetch("http://localhost:5000/api/v1/userBids", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -35,6 +35,17 @@ const JobDetails = () => {
         toast.error(error.message);
       });
   };
+
+  // const [ details, setDetails] = useState([])
+
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/api/v1/userPostJobs?email=${user.email}`)
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log(data);
+  //     setDetails(data);
+  //   });
+  // }, [])
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-5 gap-5">

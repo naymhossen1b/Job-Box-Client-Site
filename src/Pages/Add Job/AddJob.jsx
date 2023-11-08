@@ -30,7 +30,7 @@ const AddJob = () => {
       short_description,
     };
 
-    fetch("https://job-box-server-nu.vercel.app/api/v1/userPostJobs", {
+    fetch("http://localhost:5000/api/v1/userPostJobs", {
       method: "POST",
       headers: {
         "content-type": "application/json",

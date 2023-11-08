@@ -9,7 +9,7 @@ const PostCard = ({ post, jobs, setJobs }) => {
 
   const handleDelete = (_id) => {
     console.log('deleted', _id);
-    fetch(`https://job-box-server-nu.vercel.app/api/v1/userPostJobs/${_id}`, {
+    fetch(`http://localhost:5000/api/v1/userPostJobs/${_id}`, {
         method: "DELETE"
     })
     .then(res => res.json())

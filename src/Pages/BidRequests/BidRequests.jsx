@@ -1,19 +1,23 @@
-import { useLoaderData } from "react-router-dom";
 import RequestCard from "./RequestCard";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Sliders from "../../Shared/Sliders";
 import "react-step-progress-bar/styles.css";
 import { ProgressBar } from "react-step-progress-bar";
-// import BidsCard from "../MyBids/BidsCard";
+import { AuthContext } from "../../Auth/AuthProvider";
 
 const BidRequests = () => {
-  const bids = useLoaderData();
+  const { user } = useContext(AuthContext);
 
-  const [isBid, setIsBid] = useState(bids);
+  const [postedJobs, setPostedJobs] = useState([]);
 
-  // const totalBids = bids.length;
-  // const completedBids = isBid.filter(bid => bid.status === "completed").length;
-  // const progress = totalBids < 0 ? (completedBids / totalBids) * 100 : 0;
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/v1/userBids?email=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setPostedJobs(data);
+      });
+  }, []);
 
   return (
     <div>
@@ -22,17 +26,13 @@ const BidRequests = () => {
         <h1 className="text-2xl font-bold underline text-sky-800">User Posted Jobs :</h1>
       </div>
       <div className="mt-5 mb-2">
-      <ProgressBar
-        percent={75}
-        filledBackground="linear-gradient(to right, #fefb72, #f0bb31)"
-      />
+        <ProgressBar percent={75} filledBackground="linear-gradient(to right, #fefb72, #f0bb31)" />
       </div>
       <div>
-        {isBid.map((bid) => (
-          <RequestCard key={bid._id} bid={bid} isBid={isBid} setIsBid={setIsBid} />
+        {postedJobs.map((bid) => (
+          <RequestCard key={bid._id} bid={bid} isBid={postedJobs} setIsBid={setPostedJobs} />
         ))}
       </div>
-      {/* <BidsCard bids={bids} /> */}
     </div>
   );
 };

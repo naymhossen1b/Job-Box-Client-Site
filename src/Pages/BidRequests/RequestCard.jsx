@@ -5,14 +5,14 @@ import { GiConfirmed } from "react-icons/gi";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { AuthContext } from "../../Auth/AuthProvider";
 
-const RequestCard = ({ bid, setIsBid, isBid }) => {
+const RequestCard = ({ bid, postedJobs, setPostedJobs }) => {
   const { user } = useContext(AuthContext);
 
   const { email, deadline, maximum_price, minimum_price, job_title, _id, status } = bid || {};
 
   const handleDelete = (_id) => {
     console.log("deleted", _id);
-    fetch(`https://job-box-server-nu.vercel.app/api/v1/userBids/${_id}`, {
+    fetch(`http://localhost:5000/api/v1/userBids/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -20,14 +20,14 @@ const RequestCard = ({ bid, setIsBid, isBid }) => {
         console.log(data);
         if (data.acknowledged == true) {
           toast.success("Deleted Success");
-          const remaining = isBid.filter((job) => job._id !== _id);
-          setIsBid(remaining);
+          const remaining = setPostedJobs.filter((job) => job._id !== _id);
+          postedJobs(remaining);
         }
       });
   };
 
   const handleConfirmed = (id) => {
-    fetch(`https://job-box-server-nu.vercel.app/api/v1/userBids/${id}`, {
+    fetch(`http://localhost:5000/api/v1/userBids/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -38,11 +38,11 @@ const RequestCard = ({ bid, setIsBid, isBid }) => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          const remaining = isBid.filter((booking) => booking._id !== id);
-          const updated = isBid.find((booking) => booking._id === id);
+          const remaining = setPostedJobs.filter((booking) => booking._id !== id);
+          const updated = setPostedJobs.find((booking) => booking._id === id);
           updated.status = "confirmed";
           const newBooking = [updated, ...remaining];
-          setIsBid(newBooking);
+          postedJobs(newBooking);
         }
       });
   };
