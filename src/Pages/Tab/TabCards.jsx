@@ -17,8 +17,8 @@ const TabCards = ({ jobs }) => {
       data-aos-once="false"
       data-aos-anchor-placement="top-bottom"
       >
-        <h1 className="text-2xl font-bold">{job_title.slice(0, 30)}</h1>
-        <p className="font-medium mt-3">{short_description.slice(0,50)}</p>
+        <h1 className="text-2xl font-bold">{job_title.slice(0, 20)}</h1>
+        <p className="font-medium mt-3">{short_description.slice(0,40)}</p>
         <p className="font-bold mt-1">
           <span>Deadline: </span>
           {deadline}
