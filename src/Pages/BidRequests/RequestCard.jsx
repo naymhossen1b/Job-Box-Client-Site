@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import toast from "react-hot-toast";
-// import { GiConfirmed } from "react-icons/gi";
+import { GiConfirmed } from "react-icons/gi";
 import { RiDeleteBin2Line } from "react-icons/ri";
+import { AuthContext } from "../../Auth/AuthProvider";
 
 const RequestCard = ({ bid, setIsBid, isBid }) => {
-  // console.log(setIsBid);
+  const { user } = useContext(AuthContext);
+
   const { email, deadline, maximum_price, minimum_price, job_title, _id } = bid || {};
 
   const handleDelete = (_id) => {
@@ -29,16 +32,16 @@ const RequestCard = ({ bid, setIsBid, isBid }) => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ status: "Confirmed" }),
+      body: JSON.stringify({ status: "confirmed" }),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          const remaing = isBid.filter((booking) => booking._id !== id);
+          const remaining = isBid.filter((booking) => booking._id !== id);
           const updated = isBid.find((booking) => booking._id === id);
-          updated.status = "Confirmed";
-          const newBooking = [updated, ...remaing];
+          updated.status = "confirmed";
+          const newBooking = [updated, ...remaining];
           setIsBid(newBooking);
         }
       });
@@ -67,21 +70,26 @@ const RequestCard = ({ bid, setIsBid, isBid }) => {
               <td className="border text-center px-4 py-2">${minimum_price}</td>
               <td className="border text-center px-4 py-2">${maximum_price}</td>
               <td className="text-center px-4 py-2">
-              {
-                    status === 'Confirmed' ? <button className="btn bg-green-500">Confirmed</button>
-                    :
-                    <button onClick={() => handleConfirmed(_id)} className="btn bg-red-500 text-white">
-                    Pending
+                {status === "confirmed" ? (
+                  <button className="btn bg-green-500"><GiConfirmed /></button>
+                ) : (
+                  <button
+                    onClick={() => handleConfirmed(_id)}
+                    className="btn bg-red-500 text-white"
+                  >
+                    Accept<span className="loading loading-spinner"></span>
                   </button>
-                  }
+                )}
               </td>
               <td className="text-center px-4 py-2">
-                <button
-                  onClick={() => handleDelete(_id)}
-                  className="text-red-600 text-4xl btn   rounded-xl"
-                >
-                  <RiDeleteBin2Line />
-                </button>
+                {user && (
+                  <button
+                    onClick={() => handleDelete(_id)}
+                    className="text-red-600 text-4xl btn rounded-xl"
+                  >
+                    <RiDeleteBin2Line />
+                  </button>
+                )}
               </td>
             </tr>
           </tbody>

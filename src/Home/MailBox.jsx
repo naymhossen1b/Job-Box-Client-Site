@@ -1,6 +1,14 @@
 const MailBox = () => {
   return (
-    <div className="text-start mt-20 bg-cover w-full rounded-xl p-2 md:p-20 bg-[url('https://imagizer.imageshack.com/img924/6150/0FBD7D.jpg')]">
+    <div
+    data-aos="zoom-in"
+    data-aos-offset="300"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+    data-aos-mirror="true"
+    data-aos-once="false"
+    data-aos-anchor-placement="center-bottom"
+    className="text-start mt-20 bg-cover w-full rounded-xl p-2 md:p-20 bg-[url('https://imagizer.imageshack.com/img924/6150/0FBD7D.jpg')]">
       <div>
         <h1 className="text-5xl font-bold text-sky-700">Subscribe our newsletter</h1>
         <p className="mt-2 font-bold text-sky-700">New Things Will Always Update Regular</p>

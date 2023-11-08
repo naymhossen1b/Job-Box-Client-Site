@@ -7,7 +7,7 @@ import Success from "./Success";
 
 const Home = () => {
     return (
-        <div>
+        <div className="bg-sky-50">
             <Banner />
             <div className="flex justify-center items-center mt-10">
                 <Category />

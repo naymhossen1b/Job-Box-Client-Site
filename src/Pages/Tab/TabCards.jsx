@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+
 import { Link } from "react-router-dom";
 
 const TabCards = ({ jobs }) => {
@@ -7,7 +8,15 @@ const TabCards = ({ jobs }) => {
 
   return (
     <div>
-      <div className="p-5 h-56 rounded-md bg-sky-50 shadow-md border">
+      <div className="p-5 h-56 rounded-md bg-sky-50 shadow-md border"
+      data-aos="zoom-in"
+      data-aos-offset="300"
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      data-aos-mirror="true"
+      data-aos-once="false"
+      data-aos-anchor-placement="top-bottom"
+      >
         <h1 className="text-2xl font-bold">{job_title.slice(0, 30)}</h1>
         <p className="font-medium mt-3">{short_description.slice(0,50)}</p>
         <p className="font-bold mt-1">

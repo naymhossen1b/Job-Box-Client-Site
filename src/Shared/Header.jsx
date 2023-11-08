@@ -28,7 +28,7 @@ const Header = () => {
           <ul
             className={`lg:flex absolute md:static justify-center items-center text-start 
           ${open ? "" : "hidden"}
-           gap-4 lg:mr-5 p-1 rounded-md`}
+           gap-2 lg:mr-5 p-1 rounded-md`}
           >
             <li>
               <NavLink
@@ -57,7 +57,7 @@ const Header = () => {
                   isPending ? "pending" : isActive ? "font-bold underline text-red-500" : ""
                 }
               >
-                My Posted Jobs
+                Posted Jobs
               </NavLink>
             </li>
             <li>
@@ -82,6 +82,11 @@ const Header = () => {
             </li>
             <li>
               <div className="flex items-center md:ml-11">
+              <div className="mr-2 font-bold">
+                    {
+                      user ? <p>{user.displayName}</p> : ''
+                    }
+                  </div>
                 <div className="mr-3">
                   {user?.email ? (
                     <>
