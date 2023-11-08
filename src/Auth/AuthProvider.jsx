@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
       ////////////// JWT Function
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", loggedUser, { withCredentials: true })
+          .post("https://job-box-server-nu.vercel.app/jwt", loggedUser, { withCredentials: true })
           .then((res) => {
             console.log("Get Tokens", res.data);
           })
@@ -69,7 +69,7 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         axios
-          .post("http://localhost:5000/logout", loggedUser, { withCredentials: true })
+          .post("https://job-box-server-nu.vercel.app/logout", loggedUser, { withCredentials: true })
           .then((res) => {
             console.log("Get Log Out", res.data);
           })

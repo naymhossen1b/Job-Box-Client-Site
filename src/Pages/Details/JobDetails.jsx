@@ -18,7 +18,7 @@ const JobDetails = () => {
     const maximum_price = form.maximum_price.value;
     const bidData = { email, deadline, maximum_price, minimum_price, job_title, category };
 
-    fetch("http://localhost:5000/api/v1/userBids", {
+    fetch("https://job-box-server-nu.vercel.app/api/v1/userBids", {
       method: "POST",
       headers: {
         "content-type": "application/json",
