@@ -6,7 +6,7 @@ const Sidebar = () => {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/popularJobs')
+        fetch('https://job-box-server-nu.vercel.app/api/popularJobs')
         .then(res => res.json())
         .then(data => setCards(data))
     }, [])

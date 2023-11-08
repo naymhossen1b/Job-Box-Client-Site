@@ -34,7 +34,7 @@ const UpdatePost = () => {
     };
     console.log(data);
 
-    fetch(`http://localhost:5000/api/v1/userPostJobs/${_id}`, {
+    fetch(`https://job-box-server-nu.vercel.app/api/v1/userPostJobs/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

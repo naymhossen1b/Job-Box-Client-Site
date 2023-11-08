@@ -12,7 +12,7 @@ const RequestCard = ({ bid, postedJobs, setPostedJobs }) => {
 
   const handleDelete = (_id) => {
     console.log("deleted", _id);
-    fetch(`http://localhost:5000/api/v1/userBids/${_id}`, {
+    fetch(`https://job-box-server-nu.vercel.app/api/v1/userBids/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -27,7 +27,7 @@ const RequestCard = ({ bid, postedJobs, setPostedJobs }) => {
   };
 
   const handleConfirmed = (id) => {
-    fetch(`http://localhost:5000/api/v1/userBids/${id}`, {
+    fetch(`https://job-box-server-nu.vercel.app/api/v1/userBids/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
