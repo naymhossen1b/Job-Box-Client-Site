@@ -59,7 +59,7 @@ const Banner = () => {
             data-aos-duration="1000"
             data-aos-mirror="true"
             data-aos-once="false"
-            data-aos-anchor-placement="top-top"
+            data-aos-anchor-placement="top-bottom"
             className="lg:flex md:grid items-center text-center gap-3 p-2  rounded-md bg-white text-black"
           >
             <div>
@@ -77,7 +77,7 @@ const Banner = () => {
             data-aos-duration="1000"
             data-aos-mirror="true"
             data-aos-once="false"
-            data-aos-anchor-placement="top-top"
+            data-aos-anchor-placement="top-bottom"
             className="lg:flex md:grid text-center items-center gap-3 p-2 md:p-0 lg:p-2 rounded-md bg-white text-black"
           >
             <div>
@@ -95,7 +95,7 @@ const Banner = () => {
             data-aos-duration="1000"
             data-aos-mirror="true"
             data-aos-once="false"
-            data-aos-anchor-placement="top-top"
+            data-aos-anchor-placement="top-bottom"
             className="lg:flex md:grid text-center items-center gap-3 p-2 md:p-0 lg:p-2 rounded-md bg-white text-black"
           >
             <div>
@@ -113,7 +113,7 @@ const Banner = () => {
            data-aos-duration="1000"
            data-aos-mirror="true"
            data-aos-once="false"
-           data-aos-anchor-placement="top-top"
+           data-aos-anchor-placement="top-bottom"
           className="lg:flex md:grid items-center gap-3 p-2 rounded-md bg-white text-black">
             <div>
               <SiTaichigraphics className="font-bold w-11/12 mx-auto text-blue-500 text-5xl" />

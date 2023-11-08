@@ -28,53 +28,53 @@ const Header = () => {
           <ul
             className={`lg:flex absolute md:static justify-center items-center text-start 
           ${open ? "" : "hidden"}
-           gap-2 lg:mr-5 p-1 rounded-md`}
+           gap-3 lg:mr-5 p-1 rounded-md`}
           >
-            <li>
+            <li className=" p-1 rounded-md border-sky-300 bg-sky-50 shadow-md">
               <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "font-bold underline text-red-500" : ""
+                  isPending ? "pending" : isActive ? "font-medium text-green-500" : ""
                 }
               >
                 Home
               </NavLink>
             </li>
-            <li>
+            <li className=" p-1 rounded-md border-sky-300 bg-sky-50 shadow-md">
               <NavLink
                 to="/addJob"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "font-bold underline text-red-500" : ""
+                  isPending ? "pending" : isActive ? "font-medium text-green-500" : ""
                 }
               >
                 Add Job
               </NavLink>
             </li>
-            <li>
+            <li className=" p-1 rounded-md border-sky-300 bg-sky-50 shadow-md">
               <NavLink
                 to="/myPostedJobs"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "font-bold underline text-red-500" : ""
+                  isPending ? "pending" : isActive ? "font-medium text-green-500" : ""
                 }
               >
                 Posted Jobs
               </NavLink>
             </li>
-            <li>
+            <li className=" p-1 rounded-md border-sky-300 bg-sky-50 shadow-md">
               <NavLink
                 to="/myBids"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "font-bold underline text-red-500" : ""
+                  isPending ? "pending" : isActive ? "font-medium text-green-500" : ""
                 }
               >
                 My Bids
               </NavLink>
             </li>
-            <li>
+            <li className=" p-1 rounded-md border-sky-300 bg-sky-50 shadow-md">
               <NavLink
                 to="/bidRequests"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "font-bold underline text-red-500" : ""
+                  isPending ? "pending" : isActive ? "font-medium text-green-500" : ""
                 }
               >
                 Bid Requests
