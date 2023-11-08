@@ -8,7 +8,7 @@ const TabCards = ({ jobs }) => {
 
   return (
     <div>
-      <div className="p-5 h-56 rounded-md bg-sky-50 shadow-md border"
+      <div className="p-5 h-60 rounded-md bg-sky-50 shadow-md border"
       data-aos="zoom-in"
       data-aos-offset="300"
       data-aos-delay="50"
