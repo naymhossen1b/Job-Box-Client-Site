@@ -1,5 +1,5 @@
 ## 🔗  Live Link
- 👉🏻 [JobBox](https://naym-elctronic-hub.web.app/)
+ 👉🏻 [JobBox](https://job-box-apps.netlify.app/)
 
 ## JobBox
 ## These websites typically allow job seekers to create profiles, post resumes, and search for open positions. Employers can use job post websites to advertise open positions, search for qualified candidates, and manage the hiring and job finding process .
