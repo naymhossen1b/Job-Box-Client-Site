@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const UpdatePost = () => {
   const { user } = useContext(AuthContext);
@@ -52,6 +53,7 @@ const UpdatePost = () => {
 
   return (
     <div className="card w-full max-w-lg shadow-2xl bg-sky-200">
+      <Helmet> <title>JobBox || Update Post</title></Helmet>
       <form className="card-body" onSubmit={handleUpdate}>
         <div>
           <label className="label">Email</label>

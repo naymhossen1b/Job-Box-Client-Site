@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const JobDetails = () => {
   const navigate = useNavigate();
@@ -49,6 +50,9 @@ const JobDetails = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
+       <Helmet>
+        <title>JobBox || Job Details</title>
+      </Helmet>
       <section className="col-span-3">
         <div className="p-5 rounded-md bg-sky-50 shadow-lg border">
           <h1 className="text-2xl font-bold">{job_title}</h1>

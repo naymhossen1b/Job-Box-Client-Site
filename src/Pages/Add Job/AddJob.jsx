@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Banner from "./Banner";
 import Sidebar from "../../Shared/Sidebar";
+import { Helmet } from "react-helmet";
 
 const AddJob = () => {
   const { user } = useContext(AuthContext);
@@ -50,6 +51,7 @@ const AddJob = () => {
 
   return (
     <div className="bg-sky-200 rounded-md">
+      <Helmet> <title>JobBox || Add Job</title></Helmet>
       <Banner />
       <div className=" mt-10 grid grid-cols-1 md:grid-cols-5 gap-5">
         <div className="card w-full col-span-3">

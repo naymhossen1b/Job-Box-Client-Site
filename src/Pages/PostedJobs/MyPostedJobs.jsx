@@ -2,6 +2,7 @@ import PostCard from "./PostCard";
 import { useContext, useEffect, useState } from "react";
 import Sliders from "../../Shared/Sliders";
 import { AuthContext } from "../../Auth/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const MyPostedJobs = () => {
 
@@ -21,6 +22,7 @@ const MyPostedJobs = () => {
 
   return (
     <div>
+      <Helmet> <title>JobBox || Posted Jobs</title></Helmet>
       <Sliders />
       <div className="font-bold text-center mt-8">
         <h1 className="text-3xl"><span className="text-sky-400">Job</span>Box</h1>

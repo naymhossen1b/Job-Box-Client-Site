@@ -4,6 +4,7 @@ import Sliders from "../../Shared/Sliders";
 import "react-step-progress-bar/styles.css";
 import { ProgressBar } from "react-step-progress-bar";
 import { AuthContext } from "../../Auth/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const BidRequests = () => {
   const { user } = useContext(AuthContext);
@@ -21,6 +22,7 @@ const BidRequests = () => {
 
   return (
     <div>
+      <Helmet> <title>JobBox || Bid Request</title></Helmet>
       <Sliders />
       <div className="mt-8 mb-8">
         <h1 className="text-2xl font-bold underline text-sky-800">User Posted Jobs :</h1>

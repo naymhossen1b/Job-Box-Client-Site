@@ -3,6 +3,7 @@ import { AuthContext } from "./AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import SocialLogin from "../Hooks/SocialLogin";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { createUser, updateOnProfile } = useContext(AuthContext);
@@ -34,6 +35,9 @@ const Register = () => {
 
   return (
     <div className="min-h-screen bg-cover bg-[url('https://i.ibb.co/9rXs0m0/Black-background-wallpaper-by-Ma-DBut4er-Download-on-ZEDGE-ee4e.jpg')]">
+       <Helmet>
+        <title>JobBox || Sign in</title>
+      </Helmet>
       <section className="grid grid-cols-1 md:grid-cols-2">
         <div>
           <img className="mt-20" src="https://i.ibb.co/wBZSg3b/vecteezy-fills-in-the-profile-data-form-businessman-fills-in-the-21179570-490.png" alt="" />

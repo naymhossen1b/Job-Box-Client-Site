@@ -3,6 +3,7 @@ import BidsCard from "./BidsCard";
 import Sliders from "../../Shared/Sliders";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const MyBids = () => {
   const { user } = useContext(AuthContext);
@@ -20,6 +21,7 @@ const MyBids = () => {
 
   return (
     <div>
+      <Helmet> <title>JobBox || My Bids</title></Helmet>
       <Sliders />
       <div className="mt-8">
         <h1 className="text-2xl font-bold underline text-sky-800">Your All Confirmed Job Posts:</h1>
