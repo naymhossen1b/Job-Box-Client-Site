@@ -7,7 +7,7 @@ const JobDetails = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const job = useLoaderData();
-  const { job_title, deadline, minimum_price, maximum_price, short_description } = job || {};
+  const { job_title, deadline, minimum_price, maximum_price, short_description, category } = job || {};
 
   const handleBidOn = (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ const JobDetails = () => {
     const deadline = form.deadline.value;
     const minimum_price = form.minimum_price.value;
     const maximum_price = form.maximum_price.value;
-    const bidData = { email, deadline, maximum_price, minimum_price, job_title };
+    const bidData = { email, deadline, maximum_price, minimum_price, job_title, category };
 
     fetch("http://localhost:5000/api/v1/userBids", {
       method: "POST",

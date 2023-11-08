@@ -4,6 +4,7 @@ import { useState } from "react";
 import Sliders from "../../Shared/Sliders";
 import "react-step-progress-bar/styles.css";
 import { ProgressBar } from "react-step-progress-bar";
+// import BidsCard from "../MyBids/BidsCard";
 
 const BidRequests = () => {
   const bids = useLoaderData();
@@ -31,6 +32,7 @@ const BidRequests = () => {
           <RequestCard key={bid._id} bid={bid} isBid={isBid} setIsBid={setIsBid} />
         ))}
       </div>
+      {/* <BidsCard bids={bids} /> */}
     </div>
   );
 };

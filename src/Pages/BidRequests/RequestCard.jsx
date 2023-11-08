@@ -8,7 +8,7 @@ import { AuthContext } from "../../Auth/AuthProvider";
 const RequestCard = ({ bid, setIsBid, isBid }) => {
   const { user } = useContext(AuthContext);
 
-  const { email, deadline, maximum_price, minimum_price, job_title, _id } = bid || {};
+  const { email, deadline, maximum_price, minimum_price, job_title, _id, status } = bid || {};
 
   const handleDelete = (_id) => {
     console.log("deleted", _id);
@@ -59,7 +59,7 @@ const RequestCard = ({ bid, setIsBid, isBid }) => {
               <th className="px-4 font-bold text-black text-xl text-start py-2">Max Price</th>
               <th className="px-4 font-bold text-black text-xl text-start py-2">Min Price</th>
               <th className="px-4 font-bold text-black text-xl text-center py-2">Status</th>
-              <th className="px-4 font-bold text-black text-xl text-center py-2">Status</th>
+              <th className="px-4 font-bold text-black text-xl text-center py-2">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -71,21 +71,21 @@ const RequestCard = ({ bid, setIsBid, isBid }) => {
               <td className="border text-center px-4 py-2">${maximum_price}</td>
               <td className="text-center px-4 py-2">
                 {status === "confirmed" ? (
-                  <button className="btn bg-green-500"><GiConfirmed /></button>
+                  <button className="text-5xl text-green-500"><GiConfirmed /></button>
                 ) : (
                   <button
                     onClick={() => handleConfirmed(_id)}
-                    className="btn bg-red-500 text-white"
+                    className="text-red-600  btn rounded-full bg-gray-200"
                   >
-                    Accept<span className="loading loading-spinner"></span>
-                  </button>
+                    <span className="loading loading-spinner"></span>
+                  Pending</button>
                 )}
               </td>
               <td className="text-center px-4 py-2">
                 {user && (
                   <button
                     onClick={() => handleDelete(_id)}
-                    className="text-red-600 text-4xl btn rounded-xl"
+                    className="text-red-600 text-5xl  rounded-xl"
                   >
                     <RiDeleteBin2Line />
                   </button>

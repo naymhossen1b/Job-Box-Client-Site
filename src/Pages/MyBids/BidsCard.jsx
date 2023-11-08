@@ -1,9 +1,33 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import { GiConfirmed } from "react-icons/gi";
 // import { CiNoWaitingSign } from 'react-icons/ci';
 
 const BidsCard = ({ bids }) => {
-  const { email, deadline, maximum_price, minimum_price, job_title } = bids || {};
+  const { email, deadline, maximum_price, minimum_price, job_title, status, _id } = bids || {};
+
+  const [isBid, setIsBid] = useState(bids);
+
+  const handleConfirmed = (id) => {
+    fetch(`http://localhost:5000/api/v1/userBids/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: "confirmed" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          const remaining = isBid.filter((booking) => booking._id !== id);
+          const updated = isBid.find((booking) => booking._id === id);
+          updated.status = "confirmed";
+          const newBooking = [updated, ...remaining];
+          setIsBid(newBooking);
+        }
+      });
+  };
 
   return (
     <div>
@@ -17,7 +41,6 @@ const BidsCard = ({ bids }) => {
               <th className="px-4 font-bold text-black text-xl text-start py-2">Max Price</th>
               <th className="px-4 font-bold text-black text-xl text-start py-2">Min Price</th>
               <th className="px-4 font-bold text-black text-xl text-center py-2">Status</th>
-              <th className="px-4 font-bold text-black text-xl text-center py-2">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -28,15 +51,16 @@ const BidsCard = ({ bids }) => {
               <td className="border text-center px-4 py-2">${minimum_price}</td>
               <td className="border text-center px-4 py-2">${maximum_price}</td>
               <td className="text-center px-4 py-2">
-                <button className="text-green-600 text-4xl">
-                  <GiConfirmed />
-                </button>
-              </td>
-              <td className="text-center px-4 py-2">
-                <button className="btn">
-                  <span className="loading loading-spinner"></span>
-                  Pending
-                </button>
+              {status === "confirmed" ? (
+                  <button className="text-5xl text-green-500"><GiConfirmed /></button>
+                ) : (
+                  <button
+                    onClick={() => handleConfirmed(_id)}
+                    className="btn bg-red-500 text-white"
+                  >
+                    Pending<span className="loading loading-spinner"></span>
+                  </button>
+                )}
               </td>
             </tr>
           </tbody>
