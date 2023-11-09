@@ -54,6 +54,7 @@ const RequestCard = ({ bid, postedJobs, setPostedJobs }) => {
           const remaining = setPostedJobs.filter((booking) => booking._id !== id);
           const updated = setPostedJobs.find((booking) => booking._id === id);
           updated.status = "confirmed";
+          toast.success('confirmed')
           const newBooking = [updated, ...remaining];
           postedJobs(newBooking);
         }
