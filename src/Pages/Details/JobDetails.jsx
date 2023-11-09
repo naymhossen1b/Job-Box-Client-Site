@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
+import Sidebar from "../../Shared/Sidebar";
 
 const JobDetails = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const JobDetails = () => {
     const maximum_price = form.maximum_price.value;
     const bidData = { email, deadline, maximum_price, minimum_price, job_title, category };
 
-    fetch("https://job-box-server-nu.vercel.app/api/v1/userBids", {
+    fetch("http://localhost:5000/api/v1/userBids", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -40,7 +41,7 @@ const JobDetails = () => {
   // const [ details, setDetails] = useState([])
 
   // useEffect(() => {
-  //   fetch(`https://job-box-server-nu.vercel.app/api/v1/userPostJobs?email=${user.email}`)
+  //   fetch(`http://localhost:5000/api/v1/userPostJobs?email=${user.email}`)
   //   .then((res) => res.json())
   //   .then((data) => {
   //     console.log(data);
@@ -85,6 +86,7 @@ const JobDetails = () => {
                   type="number"
                   name="minimum_price"
                   id=""
+                  required
                   placeholder="Minimum Price"
                 />
                 <input
@@ -92,6 +94,7 @@ const JobDetails = () => {
                   type="number"
                   name="maximum_price"
                   id=""
+                  required
                   placeholder="Maximum Price"
                 />
               </div>
@@ -103,6 +106,7 @@ const JobDetails = () => {
                 type="date"
                 name="deadline"
                 id=""
+                required
                 placeholder="12/12/2050"
               />
             </div>
@@ -123,7 +127,9 @@ const JobDetails = () => {
         </div>
       </section>
 
-      <div className="border col-span-2 bg-gray-200"></div>
+      <div className=" -mt-10 col-span-2 p-5">
+        <Sidebar />
+      </div>
     </div>
   );
 };

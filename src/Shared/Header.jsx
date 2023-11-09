@@ -26,7 +26,7 @@ const Header = () => {
             {open == true ? <RxCross2 /> : <HiMenuAlt2 />}
           </div>
           <ul
-            className={`lg:flex absolute md:static justify-center items-center text-start 
+            className={`lg:flex absolute md:static justify-center grid bg-white p-2 items-center text-start 
           ${open ? "" : "hidden"}
            gap-3 lg:mr-5 p-1 rounded-md`}
           >

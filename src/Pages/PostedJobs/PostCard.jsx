@@ -1,27 +1,41 @@
 /* eslint-disable react/prop-types */
 
-import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-
+import swal from "sweetalert";
 
 const PostCard = ({ post, jobs, setJobs }) => {
   const { job_title, deadline, minimum_price, maximum_price, short_description, _id } = post || {};
-
   const handleDelete = (_id) => {
-    console.log('deleted', _id);
-    fetch(`https://job-box-server-nu.vercel.app/api/v1/userPostJobs/${_id}`, {
-        method: "DELETE"
-    })
-    .then(res => res.json())
-    .then( data => {
-        console.log(data);
-        if( data.acknowledged == true){
-            toast.success('Deleted Success')
-            const remaining = jobs.filter( job => job._id !== _id);
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        fetch(`http://localhost:5000/api/v1/userPostJobs/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.acknowledged === true) {
+              const remaining = jobs.filter((job) => job._id !== _id);
               setJobs(remaining);
-        }
-    })
-  }
+              swal("Deleted!", "Your posted jobs has been deleted.", "success");
+            }
+          })
+          .catch((error) => {
+            console.error("Error deleting the job:", error);
+            swal("Error", "Failed to delete the job.", "error");
+          });
+      } else {
+        swal("Cancelled", "Your posted jobs is safe :)", "info");
+      }
+    });
+  };
+  
 
   return (
     <div>
@@ -45,9 +59,11 @@ const PostCard = ({ post, jobs, setJobs }) => {
           </div>
           <div className="grid gap-3">
             <Link to={`/updateJobs/${_id}`}>
-            <button className="btn bg-sky-500 text-white">Update</button>
+              <button className="btn bg-sky-500 text-white">Update</button>
             </Link>
-            <button onClick={() => handleDelete(_id)} className="btn bg-red-500 text-white">Delete</button>
+            <button onClick={() => handleDelete(_id)} className="btn bg-red-500 text-white">
+              Delete
+            </button>
           </div>
         </div>
       </div>

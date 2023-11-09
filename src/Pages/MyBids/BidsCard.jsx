@@ -9,7 +9,7 @@ const BidsCard = ({ bids }) => {
   const [isBid, setIsBid] = useState(bids);
 
   const handleConfirmed = (id) => {
-    fetch(`https://job-box-server-nu.vercel.app/api/v1/userBids/${id}`, {
+    fetch(`http://localhost:5000/api/v1/userBids/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

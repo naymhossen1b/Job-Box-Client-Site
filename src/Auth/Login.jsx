@@ -28,19 +28,19 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-[url('https://i.ibb.co/zVpgSMX/Cool-Black-Background-Promotion-Main-Map-Black-Background-Cool-Digital-Home-Background-Image-And-Wal.jpg')]">
+    <div className="min-h-screen bg-cover bg-[url('')]">
       <Helmet>
         <title>JobBox || Login</title>
       </Helmet>
       <section className="grid grid-cols-1 md:grid-cols-2">
         <div>
-          <img src="https://imagizer.imageshack.com/img922/5463/ALyuyj.png" alt="" />
+          <img src="https://imagizer.imageshack.com/img922/9532/DElNyA.jpg" alt="" />
         </div>
         {/* Form section */}
         <div className="p-2 md:p-20">
           <form
             onSubmit={handleLogin}
-            className="space-y-3 shadow-md shadow-yellow-400 rounded-md border p-10"
+            className="space-y-3 shadow-md bg-sky-700 rounded-md border p-10"
           >
             <div className="text-center text-white">
               <h1 className="text-4xl font-bold text-yellow-800">
@@ -90,7 +90,7 @@ const Login = () => {
           </form>
           <div>
             <div className="w-9/12 mx-auto mt-5">
-              <p className="font-bold text-white">
+              <p className="font-bold text-black">
                 Don't have an account?
                 <Link className="underline text-purple-600" to="/register">
                   Register here

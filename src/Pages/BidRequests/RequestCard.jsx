@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { GiConfirmed } from "react-icons/gi";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { AuthContext } from "../../Auth/AuthProvider";
+import swal from "sweetalert";
 
 const RequestCard = ({ bid, postedJobs, setPostedJobs }) => {
   const { user } = useContext(AuthContext);
@@ -11,23 +12,35 @@ const RequestCard = ({ bid, postedJobs, setPostedJobs }) => {
   const { email, deadline, maximum_price, minimum_price, job_title, _id, status } = bid || {};
 
   const handleDelete = (_id) => {
-    console.log("deleted", _id);
-    fetch(`https://job-box-server-nu.vercel.app/api/v1/userBids/${_id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.acknowledged == true) {
-          toast.success("Deleted Success");
-          const remaining = setPostedJobs.filter((job) => job._id !== _id);
-          postedJobs(remaining);
-        }
-      });
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this item!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        fetch(`http://localhost:5000/api/v1/userBids/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.acknowledged === true) {
+              toast.success("Deleted Success");
+              const updatedJobs = postedJobs.filter((job) => job._id !== _id);
+              setPostedJobs(updatedJobs);
+            }
+          })
+      } else {
+        toast.info("Deletion canceled.");
+      }
+    });
   };
+  
 
   const handleConfirmed = (id) => {
-    fetch(`https://job-box-server-nu.vercel.app/api/v1/userBids/${id}`, {
+    fetch(`http://localhost:5000/api/v1/userBids/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
