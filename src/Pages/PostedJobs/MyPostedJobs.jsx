@@ -11,7 +11,7 @@ const MyPostedJobs = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/userPostJobs?email=${user.email}`)
+    fetch(`https://job-box-server-nu.vercel.app/api/v1/userPostJobs?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

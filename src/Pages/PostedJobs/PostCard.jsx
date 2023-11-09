@@ -14,7 +14,7 @@ const PostCard = ({ post, jobs, setJobs }) => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/api/v1/userPostJobs/${_id}`, {
+        fetch(`https://job-box-server-nu.vercel.app/api/v1/userPostJobs/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

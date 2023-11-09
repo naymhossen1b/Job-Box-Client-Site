@@ -11,7 +11,7 @@ const Category = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/tabs")
+    fetch("https://job-box-server-nu.vercel.app/api/v1/tabs")
       .then((res) => res.json())
       .then((data) => setGetJobs(data));
   }, []);
